@@ -1,0 +1,20 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata: # kpt-merge: /foo
+  name: foo
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    internal.kpt.dev/upstream-identifier: 'kpt.dev|Kptfile|default|foo'
+upstream:
+  type: git
+  git:
+    repo: https://github.com/steiler/kpt-deployment-pkg-1.git
+    ref: master
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/steiler/kpt-deployment-pkg-1.git
+    ref: master
+    commit: 9d91431d1a96f3c95dc007d987b4a98b214d0d9b
+info:
+  description: test deployment pkg 1
